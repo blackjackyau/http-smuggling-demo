@@ -1,0 +1,13 @@
+server:
+  servlet:
+    context-path: /v1
+  port: 9090
+
+logging:
+  level:
+    com.blax: INFO
+    root: DEBUG
+
+spring:
+  jackson:
+    deserialization.FAIL_ON_UNKNOWN_PROPERTIES: false

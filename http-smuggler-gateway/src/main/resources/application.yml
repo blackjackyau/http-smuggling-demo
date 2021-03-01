@@ -1,0 +1,30 @@
+server:
+  servlet:
+    context-path: /v1
+  port: 8888
+
+logging:
+  level:
+    com.blax: INFO
+    root: DEBUG
+
+spring:
+  jackson:
+    deserialization.FAIL_ON_UNKNOWN_PROPERTIES: false
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: blax
+          uri: http://localhost:9090
+          predicates:
+            - Path=/v1/blax/**
+          filters:
+            - StripPrefix=2
+            - PrefixPath=/v1
+            - CustomNormalise
+      filter:
+        remove-hop-by-hop:
+          headers: ["connection", "keep-alive", "trailer", "proxy-authorization",
+                    "proxy-authenticate", "x-application-context", "upgrade", "content-length"]

@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  nginx:
+    image: openresty/openresty:alpine
+#    image: fabiocicerchia/nginx-lua:latest
+#    image: nginx
+    ports:
+      - "80:80"
+    environment:
+      NGINX_PORT: 80
+    volumes:
+      - ./confd:/etc/nginx/conf.d:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
