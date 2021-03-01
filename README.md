@@ -16,7 +16,7 @@
 - It is almost impossible to perform `http headers normalization` on sensitive/builtin headers with nginx lua module, hacks have been done in order to achieve it
 #### http-smuggler-gateway
 - tries to reproduce using a Spring Gateway + Spring Boot approach
-- It is almost impossible to realise it where
+- It is almost impossible to realise where
     - Spring Gateway will throw error where filter headers have both CL and TE [link](https://github.com/spring-cloud/spring-cloud-gateway/blob/59cba504509ee807ab5c6be01ba46c20b034cd8f/spring-cloud-gateway-server/src/main/java/org/springframework/cloud/gateway/filter/NettyRoutingFilter.java#L168-L175).
     - Requires a keep alive socket connection between the two (yet to be POCed)
 
@@ -102,4 +102,4 @@ proxy_http_version 1.1;
 #### Setup Burp Suite on Firefox
 - Burp Suite is suitable to send HTTP request with Transfer-Encoding = chunked
 - by default, localhost | 127.0.0.1 won't forward traffic to proxy server
-- to enable it, go  to tab `about:config` then look for `network.proxy.allow_hijacking_localhost`. [(refernece)](https://security.stackexchange.com/a/211555/224446)
+- to enable it, go  to tab `about:config` then look for `network.proxy.allow_hijacking_localhost`. [(reference)](https://security.stackexchange.com/a/211555/224446)
