@@ -85,8 +85,8 @@ Accept-Encoding: gzip, deflate
 ### Experiment Findings
 Two conditions to meet for a success Http smuggling
 - Make use of the variant of CL & TE headers to trick payload mismatch between FE and BE
-- The connection between FE & BE must be `Http 1.1 with pipelining enabled`  where multiple HTTP requests are sent on a single TCP connection
-- To configure Nginx to perform `http pipelining`
+- The connection between FE & BE must be `Http 1.1 with persistent connection | connection reuse | keepalived`  where multiple HTTP requests are sent on a single TCP connection
+- To configure Nginx to perform `http persistent connection`
 ```
 upstream application {
   server localhost:9090;
